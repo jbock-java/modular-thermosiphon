@@ -3,12 +3,12 @@ package example.dagger;
 import javax.inject.Inject;
 
 @ValidateScope
-public class CommandProcessor {
+public class SubcomponentDependency {
 
     private final MatchFinder matchFinder;
 
     @Inject
-    CommandProcessor(MatchFinder matchFinder) {
+    SubcomponentDependency(MatchFinder matchFinder) {
         this.matchFinder = matchFinder;
     }
 }

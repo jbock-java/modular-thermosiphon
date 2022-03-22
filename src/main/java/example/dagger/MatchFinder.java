@@ -6,11 +6,11 @@ import java.util.Set;
 @ValidateScope
 public class MatchFinder {
 
-    private final Set<Matcher> matchers;
+    private final Set<SomeInterface> matchers;
 
     @Inject
     MatchFinder(
-            Set<Matcher> matchers) {
+            Set<SomeInterface> matchers) {
         this.matchers = matchers;
     }
 }
