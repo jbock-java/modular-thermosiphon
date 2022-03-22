@@ -1,22 +1,18 @@
 package example.dagger;
 
 import dagger.Component;
+import dagger.Module;
 
-import javax.annotation.processing.ProcessingEnvironment;
-
-@ProcessorScope
-@Component(modules = MyModule.class)
+@Component(modules = MyComponent.MainModule.class)
 interface MyComponent {
-
-    MainDependency rootBinding();
-
-    static MyComponent create(ProcessingEnvironment processingEnvironment) {
-        return DaggerProcessorComponent.factory().create(processingEnvironment);
-    }
+    DependsOnSubcomponentProvider mainDependency();
 
     @Component.Factory
     interface Factory {
-
         MyComponent create();
+    }
+
+    @Module(subcomponents = MySubComponent.class)
+    interface MainModule {
     }
 }

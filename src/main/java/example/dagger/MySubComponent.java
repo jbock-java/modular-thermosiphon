@@ -1,16 +1,21 @@
 package example.dagger;
 
+import dagger.Binds;
 import dagger.Subcomponent;
+import dagger.multibindings.IntoSet;
 
-@ValidateScope
-@Subcomponent(modules = MySubModule.class)
-public interface MySubComponent {
+@Subcomponent(modules = MySubComponent.SubModule.class)
+interface MySubComponent {
+    DependsOnSet dependsOnSet();
 
-    SubcomponentDependency subcomponentDependency();
+    @Subcomponent.Factory
+    interface Factory {
+        MyComponent create();
+    }
 
-    @Subcomponent.Builder
-    interface Builder {
-
-        MySubComponent build();
+    interface SubModule {
+        @Binds
+        @IntoSet
+        SetMemberType someInterfaceImpl(SetMemberTypeImpl impl);
     }
 }
