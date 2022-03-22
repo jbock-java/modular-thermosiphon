@@ -13,6 +13,5 @@ interface MyComponent {
     }
 
     @Module(subcomponents = MySubComponent.class)
-    interface MainModule {
-    }
+    interface MainModule {}
 }
