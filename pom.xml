@@ -10,15 +10,15 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <dapper.version>2.41.2</dapper.version>
+    <dagger.version>2.41</dagger.version>
   </properties>
 
   <dependencies>
 
     <dependency>
-      <groupId>io.github.jbock-java</groupId>
-      <artifactId>dapper</artifactId>
-      <version>${dapper.version}</version>
+      <groupId>com.google.dagger</groupId>
+      <artifactId>dagger</artifactId>
+      <version>${dagger.version}</version>
     </dependency>
 
   </dependencies>
@@ -38,9 +38,9 @@
           <target>11</target>
           <annotationProcessorPaths>
             <dependency>
-              <groupId>io.github.jbock-java</groupId>
-              <artifactId>dapper-compiler</artifactId>
-              <version>${dapper.version}</version>
+              <groupId>com.google.dagger</groupId>
+              <artifactId>dagger-compiler</artifactId>
+              <version>${dagger.version}</version>
             </dependency>
           </annotationProcessorPaths>
         </configuration>
