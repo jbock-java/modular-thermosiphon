@@ -16,9 +16,9 @@
   <dependencies>
 
     <dependency>
-      <groupId>io.github.jbock-java</groupId>
-      <artifactId>dapper</artifactId>
-      <version>${dapper.version}</version>
+      <groupId>io.avaje</groupId>
+      <artifactId>avaje-inject</artifactId>
+      <version>8.1.RC1</version>
     </dependency>
 
   </dependencies>
@@ -38,9 +38,9 @@
           <target>11</target>
           <annotationProcessorPaths>
             <dependency>
-              <groupId>io.github.jbock-java</groupId>
-              <artifactId>dapper-compiler</artifactId>
-              <version>${dapper.version}</version>
+              <groupId>io.avaje</groupId>
+              <artifactId>avaje-inject-generator</artifactId>
+              <version>8.1.RC1</version>
             </dependency>
           </annotationProcessorPaths>
         </configuration>

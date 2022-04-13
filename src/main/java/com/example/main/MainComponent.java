@@ -1,22 +1,22 @@
 package com.example.main;
 
 import com.example.sub.MainDependency;
-import dagger.Component;
+import io.avaje.inject.BeanScope;
+import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
 @Singleton
-@Component
-public interface MainComponent {
-    MainDependency mainDependency();
+public class MainComponent {
 
-    @Component.Factory
-    interface Factory {
-        MainComponent create();
+    private final MainDependency mainDependency;
+
+    @Inject
+    MainComponent(MainDependency mainDependency) {
+        this.mainDependency = mainDependency;
     }
 
     public static void main(String[] args) {
-        MainComponent mc = DaggerMainComponent.create();
-        System.out.println(mc.mainDependency());
-        System.out.println(mc.mainDependency());
+        BeanScope beanScope = BeanScope.newBuilder().build();
+        System.out.println(beanScope.get(MainComponent.class).mainDependency);
     }
 }
