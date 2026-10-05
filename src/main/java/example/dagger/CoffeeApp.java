@@ -1,17 +1,18 @@
 package example.dagger;
 
 import io.jbock.simple.Component;
-import jakarta.inject.Inject;
+import io.jbock.simple.Provides;
+import io.jbock.simple.Inject;
 
 class CoffeeApp {
 
-    @Component(mockBuilder = true)
+    @Component
     interface CoffeeComponent {
         CoffeeMaker coffeeMaker();
 
         @Component.Builder
         interface Builder {
-            Builder logLevel(String logLevel);
+            Builder logger(Logger logger);
 
             CoffeeComponent buildComponent();
         }
@@ -21,10 +22,10 @@ class CoffeeApp {
         void log(String msg);
     }
 
+    @Inject
     static class CoffeeMaker {
         private final Logger logger;
 
-        @Inject
         CoffeeMaker(Logger logger) {
             this.logger = logger;
         }
@@ -36,8 +37,4 @@ class CoffeeApp {
         }
     }
 
-    @Inject
-    static Logger createLogger(String level) {
-        return msg -> System.out.println(level + " " + msg);
-    }
 }

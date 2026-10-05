@@ -16,10 +16,8 @@ class CoffeeAppTest {
         List<String> messages = new ArrayList<>();
         CoffeeApp.Logger mockLogger = messages::add;
         CoffeeApp.CoffeeComponent app = CoffeeApp_CoffeeComponent_Impl.builder()
-                .logLevel("")
-                .withMocks()
-                .coffeeAppLogger(mockLogger)
-                .build();
+                .logger(mockLogger)
+                .buildComponent();
         app.coffeeMaker().brew();
         assertEquals(List.of(
                         "~ ~ ~ heating ~ ~ ~",
