@@ -1,7 +1,6 @@
 package example.dagger;
 
 import io.jbock.simple.Component;
-import io.jbock.simple.Provides;
 import io.jbock.simple.Inject;
 
 class CoffeeApp {
@@ -10,11 +9,9 @@ class CoffeeApp {
     interface CoffeeComponent {
         CoffeeMaker coffeeMaker();
 
-        @Component.Builder
-        interface Builder {
-            Builder logger(Logger logger);
-
-            CoffeeComponent buildComponent();
+        @Component.Factory
+        interface MyFactory {
+            CoffeeComponent buildComponent(Logger logger);
         }
     }
 
@@ -23,12 +20,7 @@ class CoffeeApp {
     }
 
     @Inject
-    static class CoffeeMaker {
-        private final Logger logger;
-
-        CoffeeMaker(Logger logger) {
-            this.logger = logger;
-        }
+    record CoffeeMaker(Logger logger) {
 
         void brew() {
             logger.log("~ ~ ~ heating ~ ~ ~");
@@ -37,12 +29,10 @@ class CoffeeApp {
         }
     }
 
-    public static void main(String[] args) {
+    static void main() {
         CoffeeApp.Logger logger = System.out::println;
-        CoffeeApp.CoffeeComponent app = CoffeeApp_CoffeeComponent_Impl.builder()
-                .logger(logger)
-                .buildComponent();
+        CoffeeApp.CoffeeComponent app = CoffeeApp_CoffeeComponent_Impl.factory()
+                .buildComponent(logger);
         app.coffeeMaker().brew();
     }
-
 }
