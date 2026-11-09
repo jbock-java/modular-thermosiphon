@@ -10,7 +10,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <simple.component.version>1.024</simple.component.version>
+    <simple.component.version>2.0</simple.component.version>
+    <simple.component.compiler.version>2.0.3</simple.component.compiler.version>
   </properties>
 
   <dependencies>
@@ -53,7 +54,7 @@
             <dependency>
               <groupId>io.github.jbock-java</groupId>
               <artifactId>simple-component-compiler</artifactId>
-              <version>${simple.component.version}</version>
+              <version>${simple.component.compiler.version}</version>
             </dependency>
           </annotationProcessorPaths>
         </configuration>

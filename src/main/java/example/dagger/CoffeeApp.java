@@ -37,4 +37,12 @@ class CoffeeApp {
         }
     }
 
+    public static void main(String[] args) {
+        CoffeeApp.Logger logger = System.out::println;
+        CoffeeApp.CoffeeComponent app = CoffeeApp_CoffeeComponent_Impl.builder()
+                .logger(logger)
+                .buildComponent();
+        app.coffeeMaker().brew();
+    }
+
 }

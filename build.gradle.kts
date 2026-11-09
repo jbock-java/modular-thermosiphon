@@ -7,8 +7,8 @@ tasks.withType<JavaCompile>().configureEach {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 repositories {
@@ -18,8 +18,8 @@ repositories {
 dependencies {
     implementation("jakarta.inject:jakarta.inject-api:2.0.1")
     implementation("io.github.jbock-java:simple-component:2.0")
-    annotationProcessor("io.github.jbock-java:simple-component-compiler:2.0.2")
-    testImplementation(platform("org.junit:junit-bom:6.1.2"))
+    annotationProcessor("io.github.jbock-java:simple-component-compiler:2.0.3")
+    testImplementation(platform("org.junit:junit-bom:6.1.3"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
